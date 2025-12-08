@@ -102,6 +102,10 @@ p {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+
+    /* equal gutters on left and right, matching thumbnail spacing */
+    padding-left: var(--gallery-gap);
+    padding-right: var(--gallery-gap);
 }
 
 .masonry-gallery .gallery-item {
