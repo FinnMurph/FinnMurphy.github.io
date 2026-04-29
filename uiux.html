@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX - Finn Murphy Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="watercolor.html">Watercolor</a></li>
+                <li><a href="printmaking.html">Printmaking</a></li>
+                <li><a href="drawing.html">Drawing</a></li>
+                <li><a href="digital.html">Digital</a></li>
+                <li><a href="book-arts.html">Book Arts</a></li>
+                <li><a href="uiux.html" class="active">UI/UX</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>OpenGrid Technologies EV Charging App</h1>
+
+        <div class="mobile-mockup-grid">
+
+            <div class="gallery-item phone-frame">
+                <img src="images/uiux/welcome%20(1).png" alt="Welcome screen">
+                <div class="gallery-item-info">
+                    <h3>Welcome</h3>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="gallery-item phone-frame">
+                <img src="images/uiux/confirm%20email%20screen.png" alt="Confirm email screen">
+                <div class="gallery-item-info">
+                    <h3>Confirm Email</h3>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="gallery-item phone-frame">
+                <img src="images/uiux/account%20already%20exists.png" alt="Account already exists screen">
+                <div class="gallery-item-info">
+                    <h3>Account Already Exists</h3>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="gallery-item phone-frame">
+                <img src="images/uiux/add%20vehicle.png" alt="Add vehicle screen">
+                <div class="gallery-item-info">
+                    <h3>Add Vehicle</h3>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="gallery-item phone-frame">
+                <img src="images/uiux/payment%20information.png" alt="Payment information screen">
+                <div class="gallery-item-info">
+                    <h3>Payment Information</h3>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="gallery-item phone-frame">
+                <img src="images/uiux/map.png" alt="Map screen">
+                <div class="gallery-item-info">
+                    <h3>Map</h3>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="gallery-item phone-frame">
+                <img src="images/uiux/click-ins.png" alt="Click-ins screen">
+                <div class="gallery-item-info">
+                    <h3>Click-Ins</h3>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="gallery-item phone-frame">
+                <img src="images/uiux/Subscription%20Plans.png" alt="Subscription plans screen">
+                <div class="gallery-item-info">
+                    <h3>Subscription Plans</h3>
+                    <p></p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Mockup details">
+            <button class="lightbox-close" aria-label="Close details">&times;</button>
+            <div class="lightbox-image-wrapper">
+                <img id="lightbox-image" src="" alt="">
+            </div>
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-description"></p>
+                <p id="lightbox-dimensions" class="dimensions"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Finn Murphy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var items = document.querySelectorAll('.mobile-mockup-grid .gallery-item img');
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImage = document.getElementById('lightbox-image');
+            var lightboxTitle = document.getElementById('lightbox-title');
+            var lightboxDescription = document.getElementById('lightbox-description');
+            var lightboxDimensions = document.getElementById('lightbox-dimensions');
+            var closeButton = document.querySelector('.lightbox-close');
+
+            function openLightbox(img) {
+                var container = img.closest('.gallery-item');
+                var info = container.querySelector('.gallery-item-info');
+                var titleEl = info ? info.querySelector('h3') : null;
+                var descEl = info ? info.querySelector('p:not(.dimensions)') : null;
+                var dimEl = info ? info.querySelector('p.dimensions') : null;
+
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.alt || '';
+                lightboxTitle.textContent = titleEl ? titleEl.textContent : '';
+                lightboxDescription.textContent = descEl ? descEl.textContent : '';
+                lightboxDimensions.textContent = dimEl ? dimEl.textContent : '';
+
+                lightbox.classList.add('is-open');
+                lightbox.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+            }
+
+            items.forEach(function (img) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function () {
+                    openLightbox(img);
+                });
+            });
+
+            closeButton.addEventListener('click', function () {
+                closeLightbox();
+            });
+
+            lightbox.addEventListener('click', function (event) {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' || event.key === 'Esc') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

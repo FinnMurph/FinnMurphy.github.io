@@ -291,6 +291,51 @@ footer p {
     }
 }
 
+/* Mobile mockup grid for UI/UX page */
+.mobile-mockup-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.mobile-mockup-grid .gallery-item-info {
+    display: none;
+}
+
+/* CSS phone frame wrapping bare Figma screens */
+.phone-frame.gallery-item {
+    background: #1c1c1e;
+    border-radius: 40px;
+    padding: 12px 8px;
+}
+
+.phone-frame.gallery-item::before {
+    content: '';
+    display: block;
+    width: 30%;
+    height: 8px;
+    background: #3a3a3c;
+    border-radius: 4px;
+    margin: 0 auto 10px;
+}
+
+.phone-frame.gallery-item img {
+    border-radius: 28px;
+}
+
+@media (max-width: 900px) {
+    .mobile-mockup-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .mobile-mockup-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     :root {
