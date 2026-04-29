@@ -26,57 +26,181 @@
 
         <div class="masonry-gallery">
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Digital Artwork 1</div>
+                <img src="images/digital/1_Secretary_Bird.jpg" alt="Secretary Bird digital illustration">
                 <div class="gallery-item-info">
-                    <h3>Untitled Digital 1</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Secretary Bird</h3>
+                    <p>Digital illustration exploring character and motion.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Digital Artwork 2</div>
+                <img src="images/digital/2_Spider_Monkey_2.jpg" alt="Spider Monkey digital illustration">
                 <div class="gallery-item-info">
-                    <h3>Untitled Digital 2</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Spider Monkey</h3>
+                    <p>Expressive study of animal form and gesture.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Digital Artwork 3</div>
+                <img src="images/digital/3_Frog.jpg" alt="Frog digital illustration">
                 <div class="gallery-item-info">
-                    <h3>Untitled Digital 3</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Frog</h3>
+                    <p>Digital painting focused on texture and color.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Digital Artwork 4</div>
+                <img src="images/digital/4_Peacock.jpg" alt="Peacock digital illustration">
                 <div class="gallery-item-info">
-                    <h3>Untitled Digital 4</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Peacock</h3>
+                    <p>Vibrant composition emphasizing pattern and rhythm.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Digital Artwork 5</div>
+                <img src="images/digital/Elephant_Final.jpg" alt="Elephant digital illustration">
                 <div class="gallery-item-info">
-                    <h3>Untitled Digital 5</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Elephant</h3>
+                    <p>Portrait exploring mass and subtle color shifts.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Digital Artwork 6</div>
+                <img src="images/digital/Final_Caribou_.jpg" alt="Caribou digital illustration">
                 <div class="gallery-item-info">
-                    <h3>Untitled Digital 6</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Caribou</h3>
+                    <p>Landscape-inspired piece with atmospheric lighting.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/digital/Final_Tiger.jpg" alt="Tiger digital illustration">
+                <div class="gallery-item-info">
+                    <h3>Tiger</h3>
+                    <p>Dynamic composition exploring contrast and pattern.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/digital/Final_Whale.jpg" alt="Whale digital illustration">
+                <div class="gallery-item-info">
+                    <h3>Whale</h3>
+                    <p>Underwater scene emphasizing gesture and scale.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/digital/Hawk_Final.jpg" alt="Hawk digital illustration">
+                <div class="gallery-item-info">
+                    <h3>Hawk</h3>
+                    <p>Study in movement and sharp graphic shapes.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/digital/Untitled_Artwork 2.jpg" alt="Untitled digital artwork">
+                <div class="gallery-item-info">
+                    <h3>Untitled Digital</h3>
+                    <p>Experimental digital piece combining texture and color.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/digital/Wolf_Final.jpg" alt="Wolf digital illustration">
+                <div class="gallery-item-info">
+                    <h3>Wolf</h3>
+                    <p>Moody portrait focusing on light and atmosphere.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
         </div>
     </main>
 
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Artwork details">
+            <button class="lightbox-close" aria-label="Close details">&times;</button>
+            <div class="lightbox-image-wrapper">
+                <img id="lightbox-image" src="" alt="">
+            </div>
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-description"></p>
+                <p id="lightbox-dimensions" class="dimensions"></p>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Finn Murphy. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var items = document.querySelectorAll('.masonry-gallery .gallery-item img');
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImage = document.getElementById('lightbox-image');
+            var lightboxTitle = document.getElementById('lightbox-title');
+            var lightboxDescription = document.getElementById('lightbox-description');
+            var lightboxDimensions = document.getElementById('lightbox-dimensions');
+            var closeButton = document.querySelector('.lightbox-close');
+
+            function openLightbox(img) {
+                var container = img.closest('.gallery-item');
+                var info = container.querySelector('.gallery-item-info');
+                var titleEl = info ? info.querySelector('h3') : null;
+                var descEl = info ? info.querySelector('p:not(.dimensions)') : null;
+                var dimEl = info ? info.querySelector('p.dimensions') : null;
+
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.alt || '';
+                lightboxTitle.textContent = titleEl ? titleEl.textContent : '';
+                lightboxDescription.textContent = descEl ? descEl.textContent : '';
+                lightboxDimensions.textContent = dimEl ? dimEl.textContent : '';
+
+                lightbox.classList.add('is-open');
+                lightbox.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+            }
+
+            items.forEach(function (img) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function () {
+                    openLightbox(img);
+                });
+            });
+
+            if (closeButton) {
+                closeButton.addEventListener('click', function () {
+                    closeLightbox();
+                });
+            }
+
+            lightbox.addEventListener('click', function (event) {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' || event.key === 'Esc') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -26,57 +26,172 @@
 
         <div class="masonry-gallery">
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Book Arts Piece 1</div>
+                <img src="images/book-arts/belgian_binding_spine.jpeg" alt="Belgian binding spine view">
                 <div class="gallery-item-info">
-                    <h3>Untitled Book 1</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Belgian Binding Spine</h3>
+                    <p>Detail of a Belgian binding structure highlighting the exposed spine.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Book Arts Piece 2</div>
+                <img src="images/book-arts/coptic_stitch_inside.jpeg" alt="Coptic stitch inside view">
                 <div class="gallery-item-info">
-                    <h3>Untitled Book 2</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Coptic Stitch Interior</h3>
+                    <p>Interior view of a coptic-bound book showing the open-flat structure.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Book Arts Piece 3</div>
+                <img src="images/book-arts/coptic_stitch_spine.jpeg" alt="Coptic stitch spine view">
                 <div class="gallery-item-info">
-                    <h3>Untitled Book 3</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Coptic Stitch Spine</h3>
+                    <p>Spine detail emphasizing hand stitching and rhythm of the sewing pattern.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Book Arts Piece 4</div>
+                <img src="images/book-arts/double_pamphlet_inside.jpeg" alt="Double pamphlet binding inside view">
                 <div class="gallery-item-info">
-                    <h3>Untitled Book 4</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Double Pamphlet Interior</h3>
+                    <p>Interior spread of a double pamphlet structure.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Book Arts Piece 5</div>
+                <img src="images/book-arts/double_pamphlet_spine.jpeg" alt="Double pamphlet binding spine view">
                 <div class="gallery-item-info">
-                    <h3>Untitled Book 5</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Double Pamphlet Spine</h3>
+                    <p>Exterior spine view highlighting stitching and cover materials.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
 
             <div class="gallery-item">
-                <div class="placeholder" style="height: 300px;">Book Arts Piece 6</div>
+                <img src="images/book-arts/japanese_stab_front.jpeg" alt="Japanese stab binding front view">
                 <div class="gallery-item-info">
-                    <h3>Untitled Book 6</h3>
-                    <p>Add your artwork description here</p>
+                    <h3>Japanese Stab Binding</h3>
+                    <p>Front view of a Japanese stab-bound book with decorative stitching.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/book-arts/life_cycle_front.jpeg" alt="Life Cycle book front cover">
+                <div class="gallery-item-info">
+                    <h3>Life Cycle - Front</h3>
+                    <p>Front cover of the artist book "Life Cycle."</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/book-arts/life_cycle_back.jpeg" alt="Life Cycle book back cover">
+                <div class="gallery-item-info">
+                    <h3>Life Cycle - Back</h3>
+                    <p>Back cover of the artist book "Life Cycle."</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/book-arts/life_cycle_images.jpeg" alt="Life Cycle book interior images">
+                <div class="gallery-item-info">
+                    <h3>Life Cycle - Interior</h3>
+                    <p>Interior spreads featuring imagery from the "Life Cycle" book.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/book-arts/life_cycle_open.jpeg" alt="Life Cycle book fully open">
+                <div class="gallery-item-info">
+                    <h3>Life Cycle - Open</h3>
+                    <p>Open view revealing the full structure of the book.</p>
+                    <p class="dimensions">Dimensions: add dimensions here</p>
                 </div>
             </div>
         </div>
     </main>
 
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Artwork details">
+            <button class="lightbox-close" aria-label="Close details">&times;</button>
+            <div class="lightbox-image-wrapper">
+                <img id="lightbox-image" src="" alt="">
+            </div>
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-description"></p>
+                <p id="lightbox-dimensions" class="dimensions"></p>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Finn Murphy. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var items = document.querySelectorAll('.masonry-gallery .gallery-item img');
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImage = document.getElementById('lightbox-image');
+            var lightboxTitle = document.getElementById('lightbox-title');
+            var lightboxDescription = document.getElementById('lightbox-description');
+            var lightboxDimensions = document.getElementById('lightbox-dimensions');
+            var closeButton = document.querySelector('.lightbox-close');
+
+            function openLightbox(img) {
+                var container = img.closest('.gallery-item');
+                var info = container.querySelector('.gallery-item-info');
+                var titleEl = info ? info.querySelector('h3') : null;
+                var descEl = info ? info.querySelector('p:not(.dimensions)') : null;
+                var dimEl = info ? info.querySelector('p.dimensions') : null;
+
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.alt || '';
+                lightboxTitle.textContent = titleEl ? titleEl.textContent : '';
+                lightboxDescription.textContent = descEl ? descEl.textContent : '';
+                lightboxDimensions.textContent = dimEl ? dimEl.textContent : '';
+
+                lightbox.classList.add('is-open');
+                lightbox.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+            }
+
+            items.forEach(function (img) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function () {
+                    openLightbox(img);
+                });
+            });
+
+            if (closeButton) {
+                closeButton.addEventListener('click', function () {
+                    closeLightbox();
+                });
+            }
+
+            lightbox.addEventListener('click', function (event) {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' || event.key === 'Esc') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
